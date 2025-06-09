@@ -1,6 +1,6 @@
 export const heroContent = {
   name: "Vinny Carpenter",
-  tagline: "Leading with humility, building and leading with purpose.",
+  tagline: "Leading with humility, driving with purpose.",
   socialLinks: {
     linkedin: {
       url: "https://linkedin.com/in/vinnycarpenter",
