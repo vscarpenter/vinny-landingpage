@@ -1,11 +1,19 @@
 #!/bin/bash
 
+# Load environment variables
+if [ -f .env ]; then
+    source .env
+else
+    echo "Error: .env file not found"
+    exit 1
+fi
+
 # Configuration
-S3_BUCKET_1="vinny.io"
-S3_BUCKET_2="vinny.dev"
-CLOUDFRONT_DISTRIBUTION_ID_1="E6H8E9ZFLB1QJ"
-CLOUDFRONT_DISTRIBUTION_ID_2="E2OH97HIWZX2L9"
-REGION="us-east-1"  # Change this to your AWS region if different
+S3_BUCKET_1="${S3_BUCKET_1}"
+S3_BUCKET_2="${S3_BUCKET_2}"
+CLOUDFRONT_DISTRIBUTION_ID_1="${CLOUDFRONT_DISTRIBUTION_ID_1}"
+CLOUDFRONT_DISTRIBUTION_ID_2="${CLOUDFRONT_DISTRIBUTION_ID_2}"
+REGION="${AWS_REGION:-us-east-1}"  # Default to us-east-1 if not specified
 
 # Colors for output
 GREEN='\033[0;32m'

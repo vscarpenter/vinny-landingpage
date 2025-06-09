@@ -1,51 +1,113 @@
-# Modern Portfolio Website
+# Vinny Carpenter - Personal Portfolio
 
-A modern, Apple-inspired portfolio website built with Next.js, TypeScript, and Tailwind CSS. This project features a clean, minimalist design with smooth animations and a responsive layout.
+A modern, responsive portfolio website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
 ## Features
 
-- Modern, Apple-inspired design
-- Responsive layout
-- Smooth animations using Framer Motion
-- TypeScript for type safety
-- Tailwind CSS for styling
-- Next.js 14 with App Router
+- 🎨 Modern and clean design
+- 📱 Fully responsive
+- ⚡ Built with Next.js 14
+- 🎭 Smooth animations with Framer Motion
+- 🎯 SEO optimized
+- 🎨 Styled with Tailwind CSS
+- 🔒 Type-safe with TypeScript
+- 📝 Content-driven architecture
+
+## Project Structure
+
+```
+src/
+├── app/                    # Next.js app directory
+│   ├── layout.tsx         # Root layout
+│   └── page.tsx           # Home page
+├── components/            # React components
+├── content/              # Static content
+│   ├── hero.ts           # Hero section content
+│   ├── about.ts          # About section content
+│   ├── expertise.ts      # Expertise section content
+│   ├── contact.ts        # Contact section content
+│   └── index.ts          # Content exports
+├── styles/               # Global styles
+└── types/                # TypeScript types
+```
+
+## Content Management
+
+The website uses a content-driven architecture where all static content is externalized into separate TypeScript files under the `src/content` directory. This approach provides several benefits:
+
+- Separation of content from presentation
+- Easy content updates without touching component code
+- Type-safe content management
+- Ready for future CMS integration
+- Simplified internationalization
 
 ## Getting Started
 
-1. Clone the repository
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/vscarpenter/vinny-landingpage.git
+   ```
+
 2. Install dependencies:
    ```bash
    npm install
    ```
+
 3. Run the development server:
    ```bash
    npm run dev
    ```
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Project Structure
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-- `src/app/` - Next.js app router pages and layouts
-- `src/components/` - Reusable React components
-- `src/styles/` - Global styles and Tailwind configuration
+## Development
 
-## Customization
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript compiler
 
-1. Update the content in `src/app/page.tsx`
-2. Modify the theme colors in `tailwind.config.js`
-3. Add your profile image to the public directory
-4. Update metadata in `src/app/layout.tsx`
+## Deployment
+
+The site is deployed to AWS S3 and served through CloudFront. To deploy:
+
+1. Copy `.env.example` to `.env` and fill in your AWS configuration:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Configure AWS CLI with your credentials:
+   ```bash
+   aws configure
+   ```
+
+3. Build the project:
+   ```bash
+   npm run build
+   ```
+
+4. Run the deployment script:
+   ```bash
+   ./deploy.sh
+   ```
+
+Note: Make sure to never commit your `.env` file or expose your AWS credentials.
 
 ## Technologies Used
 
-- Next.js 14
-- TypeScript
-- Tailwind CSS
-- Framer Motion
-- ESLint
-- PostCSS
+- [Next.js 14](https://nextjs.org/) - React framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Framer Motion](https://www.framer.com/motion/) - Animations
+- [ESLint](https://eslint.org/) - Code linting
+- [Prettier](https://prettier.io/) - Code formatting
 
 ## License
 
-MIT
+MIT License - feel free to use this project as a template for your own portfolio!
+
+## Contact
+
+- LinkedIn: [Vinny Carpenter](https://linkedin.com/in/vinnycarpenter)
+- GitHub: [vscarpenter](https://github.com/vscarpenter)
