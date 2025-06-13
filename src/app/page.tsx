@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { heroContent, aboutContent, expertiseContent, contactContent } from '@/content'
+import { heroContent, aboutContent, contactContent } from '@/content'
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -149,37 +149,6 @@ export default function Home() {
                   loading="eager"
                 />
               </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Expertise Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-6">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12">{expertiseContent.title}</h2>
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              {expertiseContent.items.map((expertise, index) => (
-                <motion.div
-                  key={expertise.title}
-                  className="p-6 sm:p-8 bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                >
-                  <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">{expertise.title}</h3>
-                  <p className="text-base sm:text-lg text-gray-600">
-                    {expertise.description}
-                  </p>
-                </motion.div>
-              ))}
             </div>
           </motion.div>
         </div>
