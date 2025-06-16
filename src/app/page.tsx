@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { useRef } from 'react'
-import { heroContent, aboutContent, contactContent } from '@/content'
+import { heroContent, aboutContent, contactContent, experienceContent, type Experience } from '@/content'
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -20,21 +20,21 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden px-4 sm:px-6">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100" />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-violet-50 to-purple-50 grain" />
         <motion.div
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0"
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.1 }}
-          transition={{ duration: 1 }}
+          animate={{ opacity: 0.6 }}
+          transition={{ duration: 1.5 }}
         >
-          <div className="absolute top-1/4 left-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-accent rounded-full mix-blend-multiply filter blur-xl animate-blob" />
-          <div className="absolute top-1/3 right-1/4 w-32 sm:w-64 h-32 sm:h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000" />
-          <div className="absolute bottom-1/4 left-1/3 w-32 sm:w-64 h-32 sm:h-64 bg-purple-400 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-4000" />
+          <div className="absolute top-1/4 left-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-indigo-400 rounded-full mix-blend-multiply filter blur-2xl animate-blob" />
+          <div className="absolute top-1/3 right-1/4 w-48 sm:w-96 h-48 sm:h-96 bg-violet-400 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-2000" />
+          <div className="absolute bottom-1/4 left-1/3 w-48 sm:w-96 h-48 sm:h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl animate-blob animation-delay-4000" />
         </motion.div>
 
         <div className="container text-center relative z-10">
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-gradient"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -42,7 +42,7 @@ export default function Home() {
             {heroContent.name}
           </motion.h1>
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8"
+            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 drop-shadow-sm"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -59,7 +59,7 @@ export default function Home() {
               href={heroContent.socialLinks.linkedin.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-white border border-gray-200 text-secondary hover:text-accent hover:border-accent transition-all duration-300 shadow-sm hover:shadow-md text-lg sm:text-xl"
+              className="btn-modern bg-white text-indigo-600 hover:text-violet-600"
               aria-label={heroContent.socialLinks.linkedin.label}
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -71,7 +71,7 @@ export default function Home() {
               href={heroContent.socialLinks.github.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-white border border-gray-200 text-secondary hover:text-accent hover:border-accent transition-all duration-300 shadow-sm hover:shadow-md text-lg sm:text-xl"
+              className="btn-modern bg-white text-indigo-600 hover:text-violet-600"
               aria-label={heroContent.socialLinks.github.label}
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -80,11 +80,8 @@ export default function Home() {
               GitHub
             </a>
             <button
-              onClick={() => {
-                const email = atob(heroContent.socialLinks.email.encoded);
-                window.location.href = `mailto:${email}`;
-              }}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-white border border-gray-200 text-secondary hover:text-accent hover:border-accent transition-all duration-300 shadow-sm hover:shadow-md text-lg sm:text-xl cursor-pointer"
+              onClick={() => window.location.href = `mailto:${atob(heroContent.socialLinks.email.encoded)}`}
+              className="btn-modern bg-white text-indigo-600 hover:text-violet-600"
               aria-label={heroContent.socialLinks.email.label}
             >
               <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -121,7 +118,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-16 sm:py-24 bg-gray-50 px-4 sm:px-6">
+      <section className="section-spacing bg-gray-50/50 px-4 sm:px-6">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -138,7 +135,7 @@ export default function Home() {
                   </p>
                 ))}
               </div>
-              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
+              <div className="relative aspect-square image-modern">
                 <Image
                   src={aboutContent.image.src}
                   alt={aboutContent.image.alt}
@@ -154,8 +151,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Experience Section */}
+      <section className="section-spacing bg-white px-4 sm:px-6">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 sm:mb-16 text-center text-gradient">
+              {experienceContent.title}
+            </h2>
+            <div className="timeline-container">
+              {experienceContent.experiences.map((exp: Experience, index: number) => (
+                <motion.div
+                  key={exp.company + exp.period}
+                  className="timeline-item mb-12 last:mb-0"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                >
+                  <div className={`timeline-content ${index % 2 === 0 ? 'md:ml-auto' : ''}`}>
+                    <div className="timeline-date">{exp.period}</div>
+                    <h3 className="timeline-role">{exp.role}</h3>
+                    <div className="timeline-company-section">
+                      <a
+                        href={exp.companyUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="timeline-company hover:text-indigo-600 transition-colors"
+                      >
+                        {exp.company}
+                      </a>
+                    </div>
+                    <ul className="timeline-description list-disc list-inside space-y-2">
+                      {exp.description.map((desc: string, i: number) => (
+                        <li key={i} className="text-gray-600">{desc}</li>
+                      ))}
+                    </ul>
+                    {exp.technologies && (
+                      <div className="timeline-tech">
+                        {exp.technologies?.map((tech: string) => (
+                          <span key={tech} className="tech-tag">{tech}</span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Contact Section */}
-      <section className="py-16 sm:py-24 bg-gray-50 px-4 sm:px-6">
+      <section className="section-spacing bg-gray-50/50 px-4 sm:px-6">
         <div className="container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -171,7 +223,7 @@ export default function Home() {
               href={contactContent.cta.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-accent text-white rounded-full text-base sm:text-lg font-medium hover:bg-opacity-90 transition-colors"
+              className="btn-modern bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-medium text-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               aria-label={contactContent.cta.label}
