@@ -1,9 +1,17 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useInView } from 'framer-motion'
 import Image from 'next/image'
-import { useRef } from 'react'
-import { heroContent, aboutContent, contactContent, experienceContent, type Experience } from '@/content'
+import { useRef, useState, useEffect } from 'react'
+import { 
+  heroContent, 
+  aboutContent, 
+  experienceContent, 
+  testimonialsContent,
+  contactContent, 
+  type Experience,
+  type Testimonial
+} from '@/content'
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -34,7 +42,7 @@ export default function Home() {
 
         <div className="container text-center relative z-10">
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 text-gradient"
+            className="text-display font-bold mb-4 sm:mb-6 text-gradient"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -42,7 +50,7 @@ export default function Home() {
             {heroContent.name}
           </motion.h1>
           <motion.p 
-            className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-6 sm:mb-8 drop-shadow-sm"
+            className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-2xl mx-auto mb-6 sm:mb-8 drop-shadow-sm font-light"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -126,11 +134,11 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">{aboutContent.title}</h2>
+            <h2 className="text-hero font-bold mb-6 sm:mb-8">{aboutContent.title}</h2>
             <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-start">
               <div className="space-y-4 sm:space-y-6">
                 {aboutContent.paragraphs.map((paragraph, index) => (
-                  <p key={index} className="text-base sm:text-lg text-gray-600">
+                  <p key={index} className="text-enhanced">
                     {paragraph}
                   </p>
                 ))}
@@ -160,7 +168,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 sm:mb-16 text-center text-gradient">
+            <h2 className="text-hero font-bold mb-12 sm:mb-16 text-center text-gradient">
               {experienceContent.title}
             </h2>
             <div className="timeline-container">
@@ -206,8 +214,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Testimonials Section */}
       <section className="section-spacing bg-gray-50/50 px-4 sm:px-6">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-hero font-bold mb-4 text-gradient">{testimonialsContent.title}</h2>
+            <p className="text-enhanced max-w-3xl mx-auto">{testimonialsContent.subtitle}</p>
+          </motion.div>
+          
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonialsContent.testimonials.map((testimonial: Testimonial, index: number) => (
+              <motion.div
+                key={testimonial.name}
+                className="card-hover bg-white rounded-2xl p-8 relative shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className="absolute top-6 right-6 text-blue-200">
+                  <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                  </svg>
+                </div>
+                
+                <blockquote className="text-enhanced italic mb-6 leading-relaxed">
+                  "{testimonial.content}"
+                </blockquote>
+                
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
+                    {testimonial.name.split(' ').map(n => n[0]).join('')}
+                  </div>
+                  <div>
+                    <div className="font-semibold text-gray-900">{testimonial.name}</div>
+                    <div className="text-body">{testimonial.role}</div>
+                    <div className="text-sm text-gray-500">{testimonial.company}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="section-spacing bg-white px-4 sm:px-6">
         <div className="container text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -215,8 +273,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">{contactContent.title}</h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mb-8 sm:mb-12">
+            <h2 className="text-hero font-bold mb-6 sm:mb-8 text-gradient">{contactContent.title}</h2>
+            <p className="text-enhanced max-w-2xl mx-auto mb-8 sm:mb-12">
               {contactContent.description}
             </p>
             <motion.a

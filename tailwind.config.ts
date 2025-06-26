@@ -9,9 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#000000',
-        secondary: '#666666',
+        primary: '#1a1a1a',
+        secondary: '#4a5568',
         accent: '#007AFF',
+        warm: {
+          50: '#fffbf5',
+          100: '#fff7ed',
+          200: '#fed7aa',
+          300: '#fc8500',
+          400: '#f59e0b',
+          500: '#d97706',
+          600: '#b45309',
+          700: '#92400e',
+          800: '#78350f',
+          900: '#5b2c0a',
+        },
+        success: '#10b981',
+        warning: '#f59e0b',
+        error: '#ef4444',
       },
       fontFamily: {
         sans: ['SF Pro Display', 'system-ui', 'sans-serif'],

@@ -9,17 +9,57 @@
   
   body {
     @apply bg-white text-primary antialiased;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   /* Modern grain texture */
   .grain {
-    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vz08vT09vT8+vzs7uxH16TeAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAuFJREFUOI0Vk+3NLiEIRG1B8ClAYAsQ2AIEt4D9ePtv5Xp/mZgYJ2fOFJKEfInkVWY2aglmQFkimRTV7MblYyVqD7HXyhKsSuPX12MeDhRHLtGvRG+P+B/S0Vu4OswR9tmvwNPyhdCDbVayJGads/WiUWcjCvCnruTBNHS9gmX2VzVuYb3GQKzEC6jOp3UzNy90rUXqd3p0P17LO6AzKc8rXu7NDyUuI8QqTxVXw1QWsTRj7gKoJnIKYa/mE7u/eD4OdbW4TwrWwzPe4u40C7wHs8Vp6jGUY7GHtXtmL8f1j3z5Zz4u7Sm9TBRs6Vc8uTqamB38MN+FUGr9fty9Q9/vf2aKxZoH+sU9ZyoNfS73YKqh/5T6VH1H0DJGEb+yW+/rA2GfHpz/zQ8rl6nA6BiDGmxQi90pr7XhIR3S0T3mT/5G1L9GmP/hB3t98R+jWvVs26dR/Hs4+yB/PQT/wcqMo/T58Tcgfd6aWjxaxTOE3+pbvZK/yZb+47/KP0mP/v37P+6QR/yvCPhK+FX/N3p6/f8P/lf/1P/c8/Yvqj9Q/1P6q/zz/v+5r/7f+n/u//I+Ef5/+h/Tf/j82/77/p/3z+Pv+t+H/q3/s/+n/pv/1/+n/7n/Pv/V//f/1n/6v/3/8j/2v/3v/Z/7n/8//b/6z/v/5j/2//3/9P/8//b/9X/qP/3/9b/9f/2//f/9v/3//X/9//3//X/9//3//X/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//X/9//3//f/9/wAA//8AAAD//w==');
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vz08vT09vT8+vzs7uxH16TeAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAuFJREFUOI0Vk+3NLiEIRG1B8ClAYAsQ2AIEt4D9ePtv5Xp/mZgYJ2fOFJKEfInkVWY2aglmQFkimRTV7MblYyVqD7HXyhKsSuPX12MeDhRHLtGvRG+P+B/S0Vu4OswR9tmvwNPyhdCDbVayJGads/WiUWcjCvCnruTBNHS9gmX2VzVuYb3GQKzEC6jOp3UzNy90rUXqd3p0P17LO6AzKc8rXu7NDyUuI8QqTxVXw1QWsTRj7gKoJnIKYa/mE7u/eD4OdbW4TwrWwzPe4u40C7wHs8Vp6jGUY7GHtXtmL8f1j3z5Zz4u7Sm9TBRs6Vc8uTqamB38MN+FUGr9fty9Q9/vf2aKxZoH+sU9ZyoNfS73YKqh/5T6VH1H0DJGEb+yW+/rA2GfHpz/zQ8rl6nA6BiDGmxQi90pr7XhIR3S0T3mT/5G1L9GmP/hB3t98R+jWvVs26dR/Hs4+yB/PQT/wcqMo/T58Tcgfd6aWjxaxTOE3+pbvZK/yZb+47/KP0mP/v37P+6QR/yvCPhK+FX/N3p6/f8P/lf/1P/c8/Yvqj9Q/1P6q/zz/v+5r/7f+n/u//I+Ef5/+h/Tf/j82/77/p/3z+Pv+t+H/q3/s/+n/pv/1/+n/7n/Pv/V//f/1n/6v/3/8j/2v/3v/Z/7n/8//b/6z/v/5j/2//3/9P/8//b/9X/qP/3/9b/9f/2//f/9v/3//X/9//3//X/9//3//X/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//f/9//3//X/9//3//f/9/wAA//8AAAD//w==');
+  }
+  /* Subtle patterns for section backgrounds */
+  .pattern-dots {
+    background-image: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .pattern-grid {
+    background-image: linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px), 
+                      linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
   }
 }
 
 @layer components {
   .container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Enhanced typography classes */
+  .text-display {
+    @apply text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight;
+    text-rendering: optimizeLegibility;
+  }
+
+  .text-hero {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    text-rendering: optimizeLegibility;
+  }
+
+  .text-section {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight;
+    text-rendering: optimizeLegibility;
+  }
+
+  .text-subsection {
+    @apply text-xl md:text-2xl font-medium tracking-tight;
+  }
+
+  .text-enhanced {
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .text-body {
+    @apply text-base text-gray-600 leading-relaxed;
   }
   
   .heading-xl {
@@ -35,27 +75,63 @@
   }
   
   .body-text {
-    @apply text-lg text-secondary leading-relaxed;
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  .body-text-sm {
+    @apply text-base text-gray-600 leading-relaxed;
   }
 
   /* Modern button styles */
   .btn-modern {
     @apply inline-flex items-center px-6 py-3 rounded-full transition-all duration-300;
     @apply shadow-[0_4px_14px_0_rgba(0,0,0,0.1)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)];
-    @apply transform hover:-translate-y-0.5;
+    @apply transform hover:-translate-y-0.5 hover:scale-105;
+    @apply backdrop-blur-sm;
+  }
+
+  .btn-warm {
+    @apply bg-gradient-to-r from-orange-400 to-orange-500 text-white;
+    @apply hover:from-orange-500 hover:to-orange-600;
+  }
+
+  .btn-glass {
+    @apply bg-white/20 backdrop-blur-md border border-white/30;
+    @apply hover:bg-white/30;
   }
 
   /* Modern image container */
   .image-modern {
     @apply rounded-2xl overflow-hidden;
-    @apply shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_8px_40px_rgb(0,0,0,0.16)];
-    @apply transition-shadow duration-300;
+    @apply shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:shadow-[0_12px_60px_rgb(0,0,0,0.2)];
+    @apply transition-all duration-500;
+    @apply hover:scale-105;
   }
 
-  /* Gradient text effect */
+  .image-floating {
+    @apply relative;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Gradient text effects */
   .text-gradient {
     @apply bg-clip-text text-transparent;
     @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600;
+  }
+
+  .text-gradient-warm {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-500 via-red-500 to-pink-500;
+  }
+
+  .text-gradient-cool {
+    @apply bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600;
   }
 
   /* Section spacing */
@@ -116,6 +192,10 @@
     @apply text-gray-600 mb-4;
   }
 
+  .timeline-item:hover .timeline-content {
+    @apply shadow-[0_8px_30px_rgba(0,0,0,0.12)] transform scale-105;
+  }
+
   .timeline-tech {
     @apply inline-flex gap-2 flex-wrap;
   }
@@ -124,5 +204,28 @@
     @apply px-3 py-1 text-sm font-medium rounded-full;
     @apply bg-gradient-to-r from-blue-50 to-indigo-50;
     @apply text-blue-700;
+    @apply transition-all duration-200 hover:scale-110 hover:shadow-md;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300;
+    @apply hover:shadow-[0_20px_40px_rgba(0,0,0,0.1)] hover:-translate-y-2;
+  }
+
+  /* Loading states */
+  .skeleton {
+    @apply animate-pulse bg-gray-200 rounded;
+  }
+
+  /* Floating elements */
+  .float-animation {
+    animation: floatSlow 8s ease-in-out infinite;
+  }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-15px) rotate(1deg); }
+    66% { transform: translateY(-5px) rotate(-1deg); }
   }
 }
