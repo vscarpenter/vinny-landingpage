@@ -32,7 +32,7 @@ export default function Home() {
               </p>
 
               <p>
-                I currently serve as Vice President of Engineering at a Fortune 100 company, leading cloud and DevOps teams that power mission-critical platforms. With over 30 years of experience across education, manufacturing, financial services, investment management, and insurance, I've learned how to turn complex technology challenges into opportunities that drive business outcomes.
+                I currently serve as Vice President of Engineering at a Fortune 100 company, leading Cloud, Platform & DevOps teams that power mission-critical platforms. With over 30 years of experience across education, manufacturing, financial services, investment management, and insurance, I've learned how to turn complex technology challenges into opportunities that drive business outcomes.
               </p>
 
               <p>
@@ -40,12 +40,11 @@ export default function Home() {
               </p>
 
               <p>
-                I've guided organizations through significant transformations, including migrating from legacy systems to modern cloud architectures, embedding DevOps culture within engineering teams, and mentoring developers who have grown into technical leaders themselves. These efforts have unlocked faster delivery, higher reliability, and more resilient teams.
+                I've guided organizations through significant transformations, including migrating from legacy systems to modern cloud architectures, embedding DevOps culture within engineering teams, and mentoring developers who have grown into technical leaders themselves. These efforts have unlocked faster delivery, higher reliability, and better business outcomes.
               </p>
 
               <p>
-                My leadership style is rooted in servant leadership—removing obstacles, investing in people's growth, and creating an environment where kindness and mutual respect are the norm. I lead with trust, integrity, and professionalism because when teams feel supported and empowered, they don't just deliver—they elevate each other and shape the future together. This approach has consistently built high-performing teams with retention rates above 95%.
-              </p>
+              I believe in servant leadership - my job is to clear roadblocks and help my teams grow. I focus on building a culture where people treat each other with kindness and respect. When you lead with trust and integrity, teams not only perform well, but they also stay together. We've maintained a retention rate of over 95% because people feel genuinely supported and empowered to do their best work.</p>
             </div>
 
             {/* Links */}
